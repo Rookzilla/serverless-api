@@ -1,4 +1,5 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
+import { ITEMS } from './consts/data';
 
 export const hello: APIGatewayProxyHandler = async (event) => {
   return {
@@ -14,7 +15,7 @@ export const getLoot: APIGatewayProxyHandler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: 'You got the loot!',
+        message: ITEMS,
         input: event,
       }),
     };
