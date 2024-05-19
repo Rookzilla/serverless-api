@@ -8,14 +8,14 @@ provider:
 
 functions:
   hello:
-    handler: src/handler.hello
+    handler: dist/handler.hello
     events:
       - http:
           path: hello
           method: get
-  
+
   getLoot:
-    handler: src/handler.getLoot
+    handler: dist/handler.getLoot
     events:
       - http:
           path: get_loot
