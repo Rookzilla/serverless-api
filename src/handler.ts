@@ -15,8 +15,10 @@ export const getLoot: APIGatewayProxyHandler = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-        "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*', // Allow any origin, or specify a particular origin
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', // Allowed methods
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization', // Allowed headers
       },
       body: JSON.stringify({
         message: ITEMS,
