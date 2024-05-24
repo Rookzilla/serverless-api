@@ -5,6 +5,12 @@ provider:
   runtime: nodejs20.x
   stage: dev
   region: eu-west-2
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource:
+        - "arn:aws:dynamodb:us-east-1:*:table/protheroDB"
 
 functions:
   hello:
