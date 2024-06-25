@@ -1,30 +1,12 @@
 import { APIGatewayProxyHandler, APIGatewayProxyEvent } from 'aws-lambda';
 import { DynamoDB } from 'aws-sdk';
 import { ITEMS } from './consts/data';
+import { headers } from './consts/headers';
+import { EventError } from './types/errors';
 
 // Initialize DynamoDB client
 const dynamoDb = new DynamoDB.DocumentClient();
 const PLAYERS_TABLE_NAME = 'prothero_db_players';
-
-type EventError = any;
-
-const headers = {
-  'Content-Type': 'application/json',
-  // CORS Fixes
-  'Access-Control-Allow-Origin': '*', 
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-}
-
-export const hello: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Hello World!',
-      input: event,
-    }),
-  };
-};
 
 export const getLoot: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent) => {
   return {
