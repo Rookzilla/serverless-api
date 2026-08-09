@@ -19,10 +19,7 @@ jobs:
           node-version: '24'
 
       - name: Install Dependencies
-        run: npm install
-
-      - name: Install Serverless
-        run: npm install -g serverless@latest
+        run: npm ci
 
       - name: Run Tests
         run: npm test
@@ -36,4 +33,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          serverless deploy
+          npx serverless deploy
